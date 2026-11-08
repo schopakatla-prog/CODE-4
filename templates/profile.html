@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ vendor['company'] }} - Profile</title>
+    <style>
+        body { font-family: Arial, sans-serif; background: #f4f6f8; padding: 40px; }
+        .profile-card { max-width: 700px; background: white; margin: auto; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); overflow: hidden; }
+        .profile-header { background: #0077b5; color: white; padding: 30px; }
+        .profile-header h1 { margin: 0 0 5px 0; }
+        .profile-header p { margin: 0; opacity: 0.9; font-size: 18px; }
+        .profile-body { padding: 30px; }
+        .section { margin-bottom: 25px; }
+        .section h3 { border-bottom: 2px solid #eee; padding-bottom: 8px; color: #333; }
+        .badge { background: #e1f5fe; color: #01579b; padding: 5px 10px; font-size: 14px; border-radius: 4px; display: inline-block; }
+        .contact-box { background: #f9f9f9; padding: 15px; border-radius: 6px; border-left: 4px solid #0077b5; }
+        .back { display: inline-block; margin-top: 20px; color: #0077b5; text-decoration: none; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <div class="profile-card">
+        <div class="profile-header">
+            <h1>{{ vendor['company'] }}</h1>
+            <p>{{ vendor['name'] }} — Professional Profile</p>
+        </div>
+        <div class="profile-body">
+            <div class="section">
+                <h3>Sector & Experience</h3>
+                <p><span class="badge">{{ vendor['sector'] }}</span></p>
+                <p><strong>Industry Experience:</strong> {{ vendor['experience'] }} Years</p>
+            </div>
+
+            <div class="section">
+                <h3>About / Services Provided</h3>
+                <p>{{ vendor['services'] }}</p>
+            </div>
+
+            <div class="section">
+                <h3>Contact Information</h3>
+                <div class="contact-box">
+                    <p><strong>Email:</strong> <a href="mailto:{{ vendor['email'] }}">{{ vendor['email'] }}</a></p>
+                </div>
+            </div>
+
+            <a href="{{ url_for('index') }}" class="back">&larr; Back to Directory</a>
+        </div>
+    </div>
+</body>
+</html>

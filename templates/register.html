@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Vendor Profile</title>
+    <style>
+        body { font-family: Arial, sans-serif; background: #f4f6f8; padding: 40px; }
+        .container { max-width: 500px; background: white; padding: 30px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); margin: auto; }
+        h2 { color: #333; text-align: center; }
+        label { display: block; margin-top: 15px; font-weight: bold; color: #555; }
+        input, select, textarea { width: 100%; padding: 10px; margin-top: 5px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; }
+        textarea { height: 80px; resize: vertical; }
+        button { width: 100%; margin-top: 25px; background: #0077b5; color: white; border: none; padding: 12px; font-size: 16px; border-radius: 4px; cursor: pointer; font-weight: bold; }
+        button:hover { background: #005582; }
+        .back { display: block; text-align: center; margin-top: 15px; color: #666; text-decoration: none; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Vendor Profile Creation</h2>
+        <form method="POST">
+            <label for="name">Contact Person / Professional Name:</label>
+            <input type="text" id="name" name="name" required placeholder="e.g. Jane Doe">
+
+            <label for="company">Company / Firm Name:</label>
+            <input type="text" id="company" name="company" required placeholder="e.g. Apex Engineering Ltd">
+
+            <label for="sector">Infrastructure Sector:</label>
+            <select id="sector" name="sector" required>
+                <option value="Renewable Energy">Renewable Energy (Solar/Wind)</option>
+                <option value="Road Construction">Road & Highway Construction</option>
+                <option value="Building & Real Estate">Building & Real Estate</option>
+                <option value="Consulting & Architecture">Consulting & Architecture</option>
+                <option value="Electrical & Utilities">Electrical & Utilities</option>
+            </select>
+
+            <label for="services">Services & Expertise Description:</label>
+            <textarea id="services" name="services" required placeholder="Detail your experience on past infrastructure projects, heavy machinery, materials provided, etc."></textarea>
+
+            <label for="experience">Years of Industry Experience:</label>
+            <input type="number" id="experience" name="experience" min="0" required placeholder="e.g. 12">
+
+            <label for="email">Business Email:</label>
+            <input type="email" id="email" name="email" required placeholder="contact@company.com">
+
+            <button type="submit">Publish Profile</button>
+        </form>
+        <a href="{{ url_for('index') }}" class="back">&larr; Back to Directory</a>
+    </div>
+</body>
+</html>

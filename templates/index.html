@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Infrastructure Vendor Network</title>
+    <style>
+        body { font-family: Arial, sans-serif; background: #f4f6f8; margin: 0; padding: 40px; }
+        .container { max-width: 900px; margin: auto; }
+        header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; }
+        h1 { color: #333; margin: 0; }
+        .btn { background: #0077b5; color: white; padding: 10px 20px; border-radius: 4px; text-decoration: none; font-weight: bold; }
+        .btn:hover { background: #005582; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
+        .card { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        .card h3 { margin-top: 0; color: #222; }
+        .badge { background: #e1f5fe; color: #01579b; padding: 4px 8px; font-size: 12px; border-radius: 4px; display: inline-block; margin-bottom: 10px; }
+        .card a { display: inline-block; margin-top: 15px; color: #0077b5; text-decoration: none; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Infrastructure Vendor Network</h1>
+            <a href="{{ url_for('register') }}" class="btn">+ Create Profile</a>
+        </header>
+
+        <div class="grid">
+            {% for vendor in vendors %}
+                <div class="card">
+                    <span class="badge">{{ vendor['sector'] }}</span>
+                    <h3>{{ vendor['company'] }}</h3>
+                    <p><strong>Representative:</strong> {{ vendor['name'] }}</p>
+                    <p><strong>Experience:</strong> {{ vendor['experience'] }} Years</p>
+                    <a href="{{ url_for('profile', vendor_id=vendor['id']) }}">View Full Profile &rarr;</a>
+                </div>
+            {% else %}
+                <p>No vendor profiles found yet. Be the first to create one!</p>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>
